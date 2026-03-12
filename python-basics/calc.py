@@ -1,15 +1,12 @@
 import argparse
 
-# store history
-history = []
-
 parser = argparse.ArgumentParser(
-    description="CLI Calculator - Perform basic arithmetic operations"
+    description="CLI Calculator"
 )
 
 parser.add_argument(
     "operation",
-    help="Operation to perform: add, sub, mul, div, history"
+    help="The Operation to perform: add, sub, mul, div, history"
 )
 
 parser.add_argument(
@@ -28,33 +25,18 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-# show history
-if args.operation == "history":
-    if len(history) == 0:
-        print("No calculations yet.")
-    else:
-        for item in history:
-            print(item)
-
 # addition
-elif args.operation == "add":
+if args.operation == "add":
     result = args.a + args.b
-    expression = f"{args.a} + {args.b} = {result}"
-    history.append(expression)
-    print(result)
 
 # subtraction
 elif args.operation == "sub":
     result = args.a - args.b
-    expression = f"{args.a} - {args.b} = {result}"
-    history.append(expression)
     print(result)
 
 # multiplication
 elif args.operation == "mul":
     result = args.a * args.b
-    expression = f"{args.a} * {args.b} = {result}"
-    history.append(expression)
     print(result)
 
 # division
@@ -63,8 +45,6 @@ elif args.operation == "div":
         print("Error: Cannot divide by zero")
     else:
         result = args.a / args.b
-        expression = f"{args.a} / {args.b} = {result}"
-        history.append(expression)
         print(result)
 
 else:
