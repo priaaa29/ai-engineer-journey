@@ -28,6 +28,7 @@ args = parser.parse_args()
 # addition
 if args.operation == "add":
     result = args.a + args.b
+    print(result)
 
 # subtraction
 elif args.operation == "sub":
