@@ -4,22 +4,26 @@ import seaborn as sns
 
 df = pd.read_csv("clean_students.csv")
  #first 5 rows
+print("\nThe Dataset: \n")
 print(df.head())
 
 #average
 df["Average"] = df[["Math","Science","English"]].mean(axis=1)
 #rank
-df["Rank"] = df[["Average"]].rank(ascending=false)
+df["Rank"] = df[["Average"]].rank(ascending=False)
 #top 5 students 
-top_students = df.sort_values(by="Average" , ascending=false)
+top_students = df.sort_values(by="Average" , ascending=False)
+print("\nThe Top Performers are : \n")
 print(top_students[["Name","Average"]].head())
 
 #weakest students 
 weak_students = df.sort_values(by="Average")
+print("\nThe Weakest Students are : \n")
 print(weak_students[["Name","Average"]].head())
 
 #hardest subject 
 subject_avg = df[["Math","Science","English"]].mean()
+print("\nThe Hardest Subjects are : \n")
 print(subject_avg)
 
 #visualise subject performance 
@@ -67,4 +71,4 @@ plt.ylabel("Average Score")
 
 plt.show()
 
-print(df)
+# print(df)
